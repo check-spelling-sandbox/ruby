@@ -1,0 +1,85 @@
+# See https://github.com/check-spelling/check-spelling/wiki/Configuration-Examples:-patterns
+
+# appveyor
+\bci\.appveyor\.com/api/projects/status/[0-9a-z]+
+\bci\.appveyor\.com/project/[^/]*/[^/]*/builds?/\d+/job/[0-9a-z]+
+
+# GitHub SHAs
+\bapi.github\.com/repos/[^/]+/[^/]+/[^/]+/[0-9a-f]+\b
+(?:\[[0-9a-f]+\]\(https:/|)/github\.com/[^/]+/[^/]+(?:/[^/]+/[0-9a-f]+(?:[-0-9a-zA-Z/#.]*|)\b|)
+\bgithub\.com/[^/]+/[^/]+[@#][0-9a-f]+\b
+# githubusercontent
+/[-a-z0-9]+\.githubusercontent\.com/[-a-zA-Z0-9?&=_\/.]*
+# gist github
+/gist\.github\.com/[^/]+/[0-9a-f]+
+# GitHub JSON
+"node_id": "[-a-zA-Z=;:/0-9+]*"
+# Contributor
+\[[^\]]+]\(https://github\.com/[^/]+\)
+
+# sha
+(['"])[0-9a-f]{96}\g{-1}
+(['"])[0-9a-f]{64}\g{-1}
+(['"])[0-9a-f]{56}\g{-1}
+(['"])[0-9a-f]{40}\g{-1}
+(['"])[0-9a-f]{32}\g{-1}
+\b[0-9a-f]{40}\b
+
+# b64
+\@b64 (?:= \+|<< )"[^"]*"
+
+# WebKitFormBoundary
+'----WebKitFormBoundary[^']*'
+
+"(?:\\x[0-9a-f]{2})+"\.unpack\(
+\.unpack\('(?:[xaX12])+'
+[0-9a-f]+"\]\.patch\(
+# crypt
+(['"])\$2a\$[^"]*\g{-1}
+
+# JavaScript regular expressions
+/.*/[gim]*\.(?:match|test|split)\(
+\.replace\(/[^/]*/[gim]*\s*,
+
+# https://www.gnu.org/software/groff/manual/groff.html
+# man troff content
+\\f[BCIPR]
+
+# Ruby regular expressions
+\%r\{[^}]*\}
+
+[/|]\\A
+
+# ruby tests
+input_keys\("[^"]*"\)
+assert_match_at\("[^"]*",\s*"[^"]*", \[.*\]\)
+assert_equal\("[^"]*",\s*".*"\)
+assert_equal\(S\("[^"]*"\), S\("[^"]*"\)
+assert_equal\(S\("[^"]*"\),
+assert_equal\("[^"]*",
+\.should == \[".*"\]
+assert_equal '[0-9a-f]*'
+"[^"]*"\)(?:\.to_a|)\.should == \[?"[^"]*"
+test_ok\(.*\)
+
+# URL escaped characters
+\%[0-9A-F]{2}
+
+(?:api_key|other)\s*[|=:>]+\s*'[^']*'
+
+# hex digits including css/html color classes:
+(?:[\\0][xX]|\\u\{?|[uU]\+|#x?|\%23)[0-9a-fA-FgGrR_]{2,}(?:[uU]?[lL]{0,2}|u\d+)\b
+
+# acceptable duplicates
+\s(long|LONG) \g{-1}\s
+\@param\s+(\w+)\s+\g{-1}\s
+
+# -W flags (W followed by a consonant that isn't `h` or `r`)
+-Warning
+-Water
+-Windows?
+-With
+-W(?=[a-z])
+
+# ignore long runs of a single character:
+\b([A-Za-z])\g{-1}{3,}\b
