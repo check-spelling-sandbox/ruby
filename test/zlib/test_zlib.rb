@@ -624,20 +624,20 @@ if defined? Zlib
     end
 
     def test_mtime
-      tim = Time.now
+      now = Time.now
 
       Tempfile.create("test_zlib_gzip_file_mtime") {|t|
         t.close
         Zlib::GzipWriter.open(t.path) do |gz|
           gz.mtime = -1
-          gz.mtime = tim
+          gz.mtime = now
           gz.print("foo")
           gz.flush
           assert_raise(Zlib::GzipFile::Error) { gz.mtime = Time.now }
         end
 
         Zlib::GzipReader.open(t.path) do |f|
-          assert_equal(tim.to_i, f.mtime.to_i)
+          assert_equal(now.to_i, f.mtime.to_i)
         end
       }
     end
