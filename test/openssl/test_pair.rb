@@ -327,8 +327,8 @@ module OpenSSL::TestPairM
       assert_kind_of Symbol, ret
 
       # make more space for subsequent write:
-      readed = s2.read(n)
-      assert_equal written, readed
+      read = s2.read(n)
+      assert_equal written, read
 
       # this fails if SSL_MODE_ACCEPT_MOVING_WRITE_BUFFER is missing:
       buf2 = Marshal.load(Marshal.dump(buf))
