@@ -26,7 +26,7 @@ struct args_info {
 
     /* additional args info */
     int rest_index;
-    int rest_dupped;
+    int rest_duped;
     const struct rb_callinfo_kwarg *kw_arg;
     VALUE *kw_argv;
     VALUE rest;
@@ -40,9 +40,9 @@ enum arg_setup_type {
 static inline void
 arg_rest_dup(struct args_info *args)
 {
-    if (!args->rest_dupped) {
+    if (!args->rest_duped) {
         args->rest = rb_ary_dup(args->rest);
-        args->rest_dupped = TRUE;
+        args->rest_duped = TRUE;
     }
 }
 
@@ -160,7 +160,7 @@ args_copy(struct args_info *args)
     else if (args->argc > 0) {
 	args->rest = rb_ary_new_from_values(args->argc, args->argv);
 	args->rest_index = 0;
-        args->rest_dupped = TRUE;
+        args->rest_duped = TRUE;
 	args->argc = 0;
     }
 }
@@ -494,7 +494,7 @@ setup_parameters_complex(rb_execution_context_t * const ec, const rb_iseq_t * co
     args = &args_body;
     given_argc = args->argc = calling->argc;
     args->argv = locals;
-    args->rest_dupped = FALSE;
+    args->rest_duped = FALSE;
 
     if (kw_flag & VM_CALL_KWARG) {
 	args->kw_arg = vm_ci_kwarg(ci);

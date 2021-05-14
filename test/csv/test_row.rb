@@ -424,12 +424,12 @@ class TestCSVRow < Test::Unit::TestCase
 
   def test_dup
     row = CSV::Row.new(["A"], ["foo"])
-    dupped_row = row.dup
-    dupped_row["A"] = "bar"
+    duped_row = row.dup
+    duped_row["A"] = "bar"
     assert_equal(["foo", "bar"],
-                 [row["A"], dupped_row["A"]])
-    dupped_row.delete("A")
+                 [row["A"], duped_row["A"]])
+    duped_row.delete("A")
     assert_equal(["foo", nil],
-                 [row["A"], dupped_row["A"]])
+                 [row["A"], duped_row["A"]])
   end
 end

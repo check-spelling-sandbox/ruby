@@ -34,7 +34,7 @@ describe :kernel_dup_clone, shared: true do
     o2.obj.should == :original
   end
 
-  it "produces a shallow copy, contained objects are not recursively dupped" do
+  it "produces a shallow copy, contained objects are not recursively duped" do
     o = ObjectSpecDup.new
     array = [1, 2]
     o.obj = array

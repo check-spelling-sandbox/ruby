@@ -42,7 +42,7 @@ describe "String#dup" do
     -> { class << dup; CLONE; end }.should raise_error(NameError)
   end
 
-  it "does not modify the original string when changing dupped string" do
+  it "does not modify the original string when changing duped string" do
     orig = "string"[0..100]
     dup = orig.dup
     orig[0] = 'x'

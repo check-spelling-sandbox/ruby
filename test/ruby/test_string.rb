@@ -1851,7 +1851,7 @@ CODE
     }
   end
 
-  def test_split_dupped
+  def test_split_duped
     s = "abc"
     s.split("b", 1).map(&:upcase!)
     assert_equal("abc", s)
