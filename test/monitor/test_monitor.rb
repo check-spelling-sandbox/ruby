@@ -305,7 +305,7 @@ class TestMonitor < Test::Unit::TestCase
     assert_join_threads([th, th2])
 
 #     d = "foo"
-#     cumber_thread = Thread.start {
+#     cucumber_thread = Thread.start {
 #       loop do
 #         @monitor.synchronize do
 #           d = "foo"
@@ -325,10 +325,10 @@ class TestMonitor < Test::Unit::TestCase
 #       assert_equal("foo", d)
 #       result5 = cond.wait
 #       assert_equal(true, result5)
-#       # this thread has priority over cumber_thread
+#       # this thread has priority over cucumber_thread
 #       assert_equal("bar", d)
 #     end
-#     cumber_thread.kill
+#     cucumber_thread.kill
   end
 
   def test_wait_interruption
