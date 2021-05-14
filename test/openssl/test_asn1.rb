@@ -189,8 +189,8 @@ class  OpenSSL::TestASN1 < OpenSSL::TestCase
     assert_equal(OpenSSL::ASN1::Null, pkey.value[0].value[1].class)
 
     assert_equal(OpenSSL::ASN1::BitString, sig_val.class)
-    cululated_sig = key.sign(OpenSSL::Digest.new('SHA1'), tbs_cert.to_der)
-    assert_equal(cululated_sig, sig_val.value)
+    calculated_sig = key.sign(OpenSSL::Digest.new('SHA1'), tbs_cert.to_der)
+    assert_equal(calculated_sig, sig_val.value)
   end
 
   def test_decode_all
