@@ -89,18 +89,18 @@ module Fiddle
         define_method("test_conversion_#{n.downcase}") do
           arg = nil
 
-          clos = Class.new(Closure) do
+          closure = Class.new(Closure) do
             define_method(:call) {|x| arg = x}
           end.new(t, [t])
 
           v = ~(~0 << (8*s))
 
           arg = nil
-          assert_equal(v, clos.call(v))
+          assert_equal(v, closure.call(v))
           assert_equal(arg, v, n)
 
           arg = nil
-          func = Function.new(clos, [t], t)
+          func = Function.new(closure, [t], t)
           assert_equal(v, func.call(v))
           assert_equal(arg, v, n)
         end
