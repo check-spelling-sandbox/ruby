@@ -5408,7 +5408,7 @@ Thu Sep  5 14:01:22 2013  Eric Hodel  <drbrain@segment7.net>
 	  before converting to a number.  [ruby-trunk - Bug #8865]
 
 	* test/optparse/test_acceptable.rb:  Tests for the above, tests for all
-	  numeric acceptables for existing behavior.
+	  numerics acceptable for existing behavior.
 
 Thu Sep  5 13:49:00 2013  Charlie Somerville  <charliesome@ruby-lang.org>
 
