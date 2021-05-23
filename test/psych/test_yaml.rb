@@ -82,7 +82,7 @@ EOY
 	#
 	# Test the specification examples
 	# - Many examples have been changes because of whitespace problems that
-	#   caused the two to be inequivalent, or keys to be sorted wrong
+	#   caused the two to be unequal, or keys to be sorted wrong
 	#
 
 	def test_spec_simple_implicit_sequence
