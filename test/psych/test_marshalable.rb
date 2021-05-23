@@ -23,7 +23,7 @@ module Psych
         [foo]
       end
 
-      def mashal_load(data)
+      def marshal_load(data)
         @foo = data[0]
       end
 
