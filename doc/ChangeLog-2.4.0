@@ -2964,7 +2964,7 @@ Tue Jun 28 02:41:32 2016  NARUSE, Yui  <naruse@ruby-lang.org>
 
 Mon Jun 27 16:58:32 2016  Nobuyoshi Nakada  <nobu@ruby-lang.org>
 
-	* lib/fileutils.rb (FileUtils#install): accecpt symbolic mode, as
+	* lib/fileutils.rb (FileUtils#install): accept symbolic mode, as
 	  well as chmod.
 
 	* lib/fileutils.rb (FileUtils#install): add owner and group
